@@ -1,0 +1,15 @@
+.searchContainer{
+    top: 0;
+    z-index: 999;
+    padding:1.2rem 1.6rem
+}
+.searchContent{
+    background:#fff;
+    display:flex;
+    height:2.2rem;
+    justify-content:center;
+    align-items:center;
+    color: #3d3d3d;
+    font-weight: bold;
+    font-size: 0.9rem;
+}

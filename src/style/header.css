@@ -1,0 +1,33 @@
+
+.svg{
+    height:0.6rem;
+    width:0.6rem
+}
+.loca-svg{
+    height:0.9rem;
+    width:0.9rem
+}
+.inlineB{
+    display: inline-block;
+}
+.weatherPic{
+    width:2rem;
+    height:2rem;
+    margin-left: 0.3rem;
+}
+.headInfo{
+    font-weight: 700;
+    color: #fff;
+}
+.location{
+    font-size: 0.95rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80%;
+    overflow: hidden;
+    width: 60%;
+    /*padding: 0.3rem;*/
+}
+.locationCol{
+    padding: 0.4rem 1rem;
+}
