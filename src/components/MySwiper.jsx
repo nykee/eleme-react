@@ -1,33 +1,19 @@
 import React from 'react';
 import {Row,Col} from 'antd'
-// import ReactSwipes from 'react-swipes'
+import ReactSwipe from 'react-swipe';
 class MySwiper extends React.Component {
     constructor(){
         super();
     }
 
-
+    transitionEnd= (index, elem)=>{
+        console.log(index);
+    };
     render() {
-        /*let opt = {
-            distance: 230, // 每次移动的距离，卡片的真实宽度，需要计算
-            currentPoint: 1,// 初始位置，默认从0即第一个元素开始
-            swTouchend: (ev) => {
-                let data = {
-                    moved: ev.moved,
-                    originalPoint: ev.originalPoint,
-                    newPoint: ev.newPoint,
-                    cancelled: ev.cancelled
-                }
-                console.log(data);
-                // this.setState({
-                //     curCard: ev.newPoint
-                // })
-            }
-        }*/
         let container={
             width:'2.8125rem',
             height:'2.8125rem',
-            // display:'inline-block'
+            display:'inline-block'
             // textAlign:'center'
             // marginRight:0
         };
@@ -39,51 +25,185 @@ class MySwiper extends React.Component {
         };
         return (
 
-            <div>
-                {/*第一页*/}
-                <div>
-                    <Row>
-                        <Col span={6}>
-                            <a href="">
-                                <div style={container}><img  style={imgStyle} src={require('../images/swiper/food.jpg')} alt=""/></div>
-                                <span>美食</span>
-                            </a>
-                        </Col>
-                        <Col span={6}>
-                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/dinner.jpg')} alt=""/></div>
-                            <span>晚餐</span>
-                        </Col>
-                        <Col span={6}>
-                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/supermarket.jpg')} alt=""/></div>
-                            <span>商超便利</span>
-                        </Col>
-                        <Col span={6}>
-                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/fruit.jpg')} alt=""/></div>
-                            <span>果树生鲜</span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col span={6}>
-                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/buger.jpg')} alt=""/></div>
-                            <span>汉堡薯条</span>
-                        </Col>
-                        <Col span={6}>
-                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/50off.jpg')} alt=""/></div>
-                            <span>大牌5折</span>
-                        </Col>
-                        <Col span={6}>
-                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/drink.jpg')} alt=""/></div>
-                            <span>甜品饮品</span>
-                        </Col>
-                        <Col span={6}>
-                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/medic.jpg')} alt=""/></div>
-                            <span>医药健康</span>
-                        </Col>
-                    </Row>
 
-                </div>
-                {/*第二页*/}
-            </div>
+
+
+
+                <ReactSwipe  swipeOptions={{continuous: true}} transitionEnd ={this.transitionEnd} >
+                    <div>
+                        <Row>
+                            <Col span={6}>
+
+                                <a href="">
+                                    <ul>
+                                        <li>
+                                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/food.jpg')} alt=""/></div>
+                                        </li>
+                                        <li>
+                                            <span>美食</span>
+                                        </li>
+                                    </ul>
+                                </a>
+
+
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/dinner.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>晚餐</span>
+                                    </li>
+                                </ul>
+
+
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/supermarket.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>商超便利</span>
+                                    </li>
+                                </ul>
+
+
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/fruit.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>果树生鲜</span>
+                                    </li>
+                                </ul>
+                            </Col>
+                        </Row>
+                        <Row style={{marginTop:'0.4rem'}}>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/buger.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>汉堡薯条</span>
+                                    </li>
+                                </ul>
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/50off.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>大牌5折</span>
+                                    </li>
+                                </ul>
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/drink.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>甜品饮品</span>
+                                    </li>
+                                </ul>
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/medic.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>医药健康</span>
+                                    </li>
+                                </ul>
+                            </Col>
+                        </Row>
+                    </div>
+                    <div>
+                        <Row>
+                            <Col span={6}>
+
+                                <a href="">
+                                    <ul>
+                                        <li>
+                                            <div style={container}><img  style={imgStyle} src={require('../images/swiper/food.jpg')} alt=""/></div>
+                                        </li>
+                                        <li>
+                                            <span>浪漫鲜花</span>
+                                        </li>
+                                    </ul>
+                                </a>
+
+
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/dinner.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>麻辣烫</span>
+                                    </li>
+                                </ul>
+
+
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/supermarket.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>地方菜系</span>
+                                    </li>
+                                </ul>
+
+
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/fruit.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>披萨意面</span>
+                                    </li>
+                                </ul>
+                            </Col>
+                        </Row>
+                        <Row  style={{marginTop:'0.3rem'}}>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/buger.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>地方小吃</span>
+                                    </li>
+                                </ul>
+                            </Col>
+                            <Col span={6}>
+                                <ul>
+                                    <li>
+                                        <div style={container}><img  style={imgStyle} src={require('../images/swiper/50off.jpg')} alt=""/></div>
+                                    </li>
+                                    <li>
+                                        <span>快餐便当</span>
+                                    </li>
+                                </ul>
+                            </Col>
+
+                        </Row>
+                    </div>
+                </ReactSwipe>
+
+
 
         )
     }

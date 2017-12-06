@@ -2,8 +2,91 @@ import React from 'react';
 // import {Link} from 'react-router'
 import '../../style/header.css'
 import '../../style/common.css'
+// import axios from 'axios'
 import {Row,Col} from 'antd'
 class Header extends React.Component {
+    constructor(){
+        super();
+        this.state={
+            tempe:'',
+            weatherPic:'',
+            weather:'',
+            locationAdd:'正在定位'
+        }
+
+
+    }
+    getLocation(){
+        if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(this.showPosition,this.showError);
+        }else{
+            alert("浏览器不支持地理定位。");
+        }
+    }
+    showError(error){
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                alert("定位失败,用户拒绝请求地理定位");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("定位失败,位置信息是不可用");
+                break;
+            case error.TIMEOUT:
+                alert("定位失败,请求获取用户位置超时");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("定位失败,定位系统失效");
+                break;
+        }
+    }
+    showPosition(position){
+        /*var lat = position.coords.latitude; //纬度
+        var lng = position.coords.longitude; //经度*/
+
+        var latlon = position.coords.latitude+','+position.coords.longitude;
+        console.log(latlon);
+        /*axios.get("http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="+"39.934,116.329"+"&output=json&pois=1&ak=2bDYoECt97bksgX4w3j6FATWbs38FGHF",{withCredentials:true,headers:'Access-Control-Allow-Origin:*'}  ).then(function (res) {
+            console.log(res);
+        }).catch(function (err) {
+            console.log(err);
+        })*/
+    }
+        componentWillMount(){
+
+        let self = this;
+        // self.getLocation();
+
+       /* axios.get('https://api.seniverse.com/v3/weather/now.json?key=h1edziukh9me5nmp&location=shanghai&language=zh-Hans&unit=c',{withCredentials:true}).then(function (res) {
+            console.log(res);})*/
+            /*self.setState({
+                weather:res.data.results[0].weather_data[0].weather
+            });
+            let tempe = res.data.results[0].weather_data[0].date;
+            tempe = tempe.slice(tempe.indexOf('：')+1, tempe.length-1);
+            self.setState({
+                tempe:tempe
+            });
+            // console.log(tempe);
+            let now =new Date().getHours();
+            let isNight =false;
+            if((17<now&&now<=24)||(0<now&&now<=4)){
+                isNight =true;
+            }
+
+
+            if(isNight){
+                self.setState({
+                    weatherPic:res.data.results[0].weather_data[0].nightPictureUrl
+                })
+            }
+            else {
+                self.setState({
+                    weatherPic:res.data.results[0].weather_data[0].dayPictureUrl
+                })
+            }*/
+
+
+    }
     render() {
         return (
             <header>
@@ -24,10 +107,10 @@ class Header extends React.Component {
                    </Col>
                    <Col span={6} offset={2} className="weatherCol">
                        <div className="inlineB">
-                           <h2 style={{color:'#fff'}}>11°</h2>
-                           <p style={{color:'#fff'}}>多云天</p>
+                           <h2 style={{color:'#fff'}}>{this.state.tempe}</h2>
+                           <p style={{color:'#fff'}}>{this.state.weather}</p>
                        </div>
-                       <img className='weatherPic' src="//fuss10.elemecdn.com/2/52/5383cfd55c8ba454449f63f54ce2apng.png?imageMogr/format/webp/thumbnail/!69x69r/gravity/Center/crop/69x69/" alt="天气图标"/>
+                       <img className='weatherPic' src={this.state.weatherPic} alt="天气图标"/>
                    </Col>
                </Row>
 

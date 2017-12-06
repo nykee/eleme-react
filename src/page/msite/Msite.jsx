@@ -17,7 +17,7 @@ class msite extends React.Component {
                 <Commend></Commend>
                 <Swiper></Swiper>
                 <BannerAD></BannerAD>
-                <div style={{display:'flex',paddingBottom:'0.28rem'}}></div>
+                <div style={{display:'flex',paddingBottom:'0.28rem',height:'0.6rem',width:'100%',background:'#F5F5F5'}}></div>
                 <Recommend></Recommend>
                 <BackTop></BackTop>
             </div>
