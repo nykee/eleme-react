@@ -1,0 +1,16 @@
+.shopList-title:before ，.shopList-title:after{
+    display: block;
+    content:"";
+    width: 0.533rem;
+    height: 0.026rem;
+    background: #999;
+}
+.shopList-title:before{
+    margin-right: 0.34677rem;
+}
+.shopList-title:after{
+    margin-left:  0.34677rem;
+}
+.shopList-title{
+
+}

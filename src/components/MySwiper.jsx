@@ -34,6 +34,7 @@ class MySwiper extends React.Component {
         let imgStyle={
             width:'100%',
             height:'100%',
+            maxWidth:'100%',
             verticalAlign:'top'
         };
         return (
