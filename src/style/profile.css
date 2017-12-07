@@ -1,0 +1,12 @@
+.p-avatar{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    background: #fff;
+    display: inline-block;
+}
+.p-avatar-svg{
+    width: 4rem;
+    height: 4rem;
+}

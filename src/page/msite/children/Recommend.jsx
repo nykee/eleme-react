@@ -4,7 +4,7 @@ import '../../../style/Recommend.css'
 class Recommend extends React.Component {
     render() {
         return (
-            <div>
+            <div style={{background:'#fff'}}>
                 <div className="shopList-title"> 推荐商家 </div>
                 <div id="shopList">
                     <ul>

@@ -6,9 +6,9 @@ class MySwiper extends React.Component {
         super();
     }
 
-    transitionEnd= (index, elem)=>{
-        console.log(index);
-    };
+    // transitionEnd= (index, elem)=>{
+    //     console.log(index);
+    // };
     render() {
         let container={
             width:'2.8125rem',
@@ -29,8 +29,8 @@ class MySwiper extends React.Component {
 
 
 
-                <ReactSwipe  swipeOptions={{continuous: true}} transitionEnd ={this.transitionEnd} >
-                    <div>
+                <ReactSwipe  swipeOptions={{continuous: true}}  >
+                    <div style={{background:'#fff'}}>
                         <Row>
                             <Col span={6}>
 
@@ -125,7 +125,7 @@ class MySwiper extends React.Component {
                             </Col>
                         </Row>
                     </div>
-                    <div>
+                    <div style={{background:'#fff'}}>
                         <Row>
                             <Col span={6}>
 
@@ -201,7 +201,9 @@ class MySwiper extends React.Component {
 
                         </Row>
                     </div>
+                    {/*todo paginatiobn分页显示*/}
                 </ReactSwipe>
+
 
 
 

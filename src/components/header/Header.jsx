@@ -2,7 +2,7 @@ import React from 'react';
 // import {Link} from 'react-router'
 import '../../style/header.css'
 import '../../style/common.css'
-// import axios from 'axios'
+import axios from 'axios'
 import {Row,Col} from 'antd'
 class Header extends React.Component {
     constructor(){
@@ -54,9 +54,37 @@ class Header extends React.Component {
         componentWillMount(){
 
         let self = this;
-        // self.getLocation();
+        //获取地理经纬度
+        self.getLocation();
 
-       /* axios.get('https://api.seniverse.com/v3/weather/now.json?key=h1edziukh9me5nmp&location=shanghai&language=zh-Hans&unit=c',{withCredentials:true}).then(function (res) {
+       // 获取实时天气
+
+            axios({
+                method:'get',
+                url:'https://api.seniverse.com/v3/weather/now.json?key=h1edziukh9me5nmp&location=shanghai&language=zh-Hans&unit=c',
+                // url:'/weather',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                proxy: {
+                    host: '127.0.0.1',
+                    port: 3000,},
+                withCredentials:true
+            }).then(function(res){
+                console.log(res.data);
+                let temp = res.data.now.temperature;
+                temp =temp+'°C';
+                let weather =res.data.now.text;
+                console.log(temp);
+                self.setState({
+                    weather:weather,
+                    tempe:temp
+                })
+
+            }).catch(function (err) {
+                console.log(err);
+            });
+        /*axios.get('https://api.seniverse.com/v3/weather/now.json?key=h1edziukh9me5nmp&location=shanghai&language=zh-Hans&unit=c',{withCredentials:true}).then(function (res) {
             console.log(res);})*/
             /*self.setState({
                 weather:res.data.results[0].weather_data[0].weather
