@@ -5,8 +5,9 @@ import "../../style/footGuide.css"
 
 class FootGuide extends React.Component {
     render() {
+        let clientW =  document.body.clientWidth;
         return (
-            <div className="footGuideContainer">
+            <div className="footGuideContainer" style={{width:clientW}}>
                 <Row className="footGuideRow" >
                     <Col span={6}>
                         <Link to="/msite"  className="cLink">

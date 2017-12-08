@@ -5,12 +5,16 @@ import '../../style/discover/discover.css'
 
 class Discover extends React.Component {
     render() {
+        let clientW =  document.body.clientWidth;
+        let cH =document.body.clientHeight;
+        // console.log(clientW);
+        console.log(cH);
         return (
-            <div style={{background:'#F5F5F5'}}>
+            <div style={{background:'#F5F5F5',height:'100%'}}>
                 <Row style={{background:'#fff'}}>
-                    <Col span={12}>
+                    <Col span={12} className="entry-items">
                         <Row>
-                            <Col span={18}>
+                            <Col span={18}  >
                                 <h3>金币商城</h3>
                                 <p>0元</p>
                             </Col>
@@ -19,9 +23,9 @@ class Discover extends React.Component {
                             </Col>
                         </Row>
                     </Col>
-                    <Col span={12}>
+                    <Col span={12} className="entry-items">
                         <Row>
-                            <Col span={18}>
+                            <Col span={18} >
                                 <h3>必吃爆料</h3>
                                 <p>最夯外面指南</p>
                             </Col>
@@ -32,7 +36,7 @@ class Discover extends React.Component {
                     </Col>
                 </Row>
                 <Row style={{background:'#fff'}}>
-                    <Col span={12}>
+                    <Col span={12} className="entry-items">
                         <Row>
                             <Col span={18}>
                                 <h3>推荐有奖</h3>
@@ -43,7 +47,7 @@ class Discover extends React.Component {
                             </Col>
                         </Row>
                     </Col>
-                    <Col span={12}>
+                    <Col span={12} className="entry-items">
                         <Row>
                             <Col span={18}>
                                 <h3>周边诱惑</h3>
@@ -57,7 +61,7 @@ class Discover extends React.Component {
                 </Row>
                 <Row style={{marginTop:'0.9rem',marginBottom:'0.9rem'}}>
                     <a >
-                        <img src="https://fuss10.elemecdn.com/b/6d/656006edcd86033a1b32b23ddea37jpeg.jpeg?imageMogr/format/webp/" style={{width:'100%'}} alt=""/>
+                        <img src="https://fuss10.elemecdn.com/b/6d/656006edcd86033a1b32b23ddea37jpeg.jpeg?imageMogr/format/webp/" style={{width:clientW}} alt=""/>
                     </a>
                 </Row>
 
@@ -72,7 +76,7 @@ class Discover extends React.Component {
                         </div>
                         <p>你的口味我都懂</p>
                     </Row>
-                    <Row className="activity-content"  gutter={10}>
+                    <Row className="activity-content"   >
                         <Col span={8}>
                             <ul>
                                 <li className="activity-li"><img className="activity-img" src={"https://fuss10.elemecdn.com/b/ba/f943513d9175c7b7c8b782d8d45d0jpeg.jpeg?imageMogr/format/webp/"} alt=""/></li>
@@ -80,7 +84,7 @@ class Discover extends React.Component {
                                 <li className="activity-li"><span>¥</span>30</li>
                             </ul>
                         </Col>
-                        <Col span={8}>
+                        <Col span={8}  >
                             <ul>
                                 <li className="activity-li"><img className="activity-img" src="https://fuss10.elemecdn.com/1/53/d7f8918d19c1a75a6fa45e047677bjpeg.jpeg?imageMogr/format/webp/" alt=""/></li>
                                 <li className="activity-li">午餐肉</li>
@@ -109,7 +113,7 @@ class Discover extends React.Component {
                         </div>
                         <p>特价商品，一网打尽</p>
                     </Row>
-                    <Row className="activity-content" gutter={10}>
+                    <Row className="activity-content" >
                         <Col span={8}>
                             <ul>
                                 <li className="activity-li"><img className="activity-img" src="https://fuss10.elemecdn.com/6/ce/1b34ca447f77a45ce5b8484f2b9f4jpeg.jpeg?imageMogr/format/webp/" alt=""/></li>
@@ -118,7 +122,7 @@ class Discover extends React.Component {
                                 <span className="discount">4.6折</span>
                             </ul>
                         </Col>
-                        <Col span={8}>
+                        <Col span={8} >
                             <ul>
                                 <li className="activity-li"><img className="activity-img" src="https://fuss10.elemecdn.com/5/53/d25e9595dc5bf47c2301169fd9269jpeg.jpeg?imageMogr/format/webp/" alt=""/></li>
                                 <li className="activity-li">拿铁咖啡</li>
@@ -139,7 +143,7 @@ class Discover extends React.Component {
                 </div>
 
                 {/*限时好礼*/}
-                <div style={{background:'#fff',marginBottom:'1.2rem'}}>
+                <div style={{background:'#fff',paddingBottom:'1.2rem'}}>
                     <Row >
                         <div>
                             <span className="line left"></span>
@@ -149,7 +153,7 @@ class Discover extends React.Component {
                         </div>
                         <p>金币换好礼</p>
                     </Row>
-                    <Row className="activity-content" gutter={10}>
+                    <Row className="activity-content" >
                         <Col span={8}>
                             <ul>
                                 <li className="activity-li"><img className="activity-img" src="https://fuss10.elemecdn.com/7/c5/f595b52bc6b50c9899398dccffd42jpeg.jpeg?imageMogr/format/webp/" alt=""/></li>
@@ -158,7 +162,7 @@ class Discover extends React.Component {
                                 <span className="discount">限时优惠</span>
                             </ul>
                         </Col>
-                        <Col span={8}>
+                        <Col span={8} style={{padding:'0 .2rem'}}>
                             <ul>
                                 <li className="activity-li"><img className="activity-img" src="https://fuss10.elemecdn.com/a/2f/8ffb52091977a5d6ac64e475b7dabjpeg.jpeg?imageMogr/format/webp/" alt=""/></li>
                                 <li className="activity-li">冬季优越，送你</li>

@@ -1,4 +1,16 @@
-
+.header-container{
+    height:3.75rem ;
+    line-height: 1.875rem;
+}
+.header-wrapper{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 8848;
+    display: flex;
+    width: 100%;
+    height:3.75rem ;
+}
 .svg{
     height:0.6rem;
     width:0.6rem
