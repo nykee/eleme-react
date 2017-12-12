@@ -14,12 +14,12 @@ class msite extends React.Component {
         return (
             <div>
                 <Search/>
-                <Commend></Commend>
-                <Swiper></Swiper>
-                <BannerAD></BannerAD>
+                <Commend/>
+                <Swiper>/</Swiper>
+                <BannerAD/>
                 <div style={{display:'flex',paddingBottom:'0.28rem',height:'0.6rem',width:'100%',background:'#F5F5F5'}}></div>
-                <Recommend></Recommend>
-                <BackTop></BackTop>
+                <Recommend/>
+                <BackTop/>
             </div>
 
 
