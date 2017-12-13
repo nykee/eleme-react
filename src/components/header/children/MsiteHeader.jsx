@@ -11,6 +11,7 @@ class MsiteHeader extends React.Component {
             weatherPic:'',
             weather:'',
             locationAdd:'正在定位',
+            latlon:''
         };
         // this.pUrl =''
 
@@ -41,36 +42,24 @@ class MsiteHeader extends React.Component {
         }
     }
     showPosition(position){
-        /*var lat = position.coords.latitude; //纬度
-        var lng = position.coords.longitude; //经度*/
+        var latlon = position.coords.latitude+','+position.coords.longitude;
+        this.setState({
+            latlon:latlon
+        })
+    };
+    /*showPosition(position){
+        /!*var lat = position.coords.latitude; //纬度
+        var lng = position.coords.longitude; //经度*!/
 
         var latlon = position.coords.latitude+','+position.coords.longitude;
         console.log(latlon);
-        axios.get('/getlocation',latlon).then((res)=>{
-            console.log(res.data);
-        }).catch((e)=>{
-            console.log(e);
-        })
-        /*axios.get("http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="+"39.934,116.329"+"&output=json&pois=1&ak=2bDYoECt97bksgX4w3j6FATWbs38FGHF",{withCredentials:true,headers:'Access-Control-Allow-Origin:*'}  ).then(function (res) {
+        /!*axios.get("http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="+"39.934,116.329"+"&output=json&pois=1&ak=2bDYoECt97bksgX4w3j6FATWbs38FGHF",{withCredentials:true,headers:'Access-Control-Allow-Origin:*'}  ).then(function (res) {
             console.log(res);
         }).catch(function (err) {
             console.log(err);
-        })*/
-    }
-    /*crypto(){
-        let queryString ='ts=1443079775&ttl=30&uid=UF5182BCB2';
-        let crypto = require('crypto');
-        let key = 'h1edziukh9me5nmp';
-        let hmac =crypto.createHmac('sha1', key);
-        hmac.update(queryString);
-        let kd =hmac.digest('base64');
-        kd =encodeURI(kd);
-        console.log(kd);
-        // sig =new Buffer(sig).toString('base64');
-        // console.log(sig);
-        // sig=encodeURI(sig);
-        // console.log(sig);
+        })*!/
     }*/
+
 
     componentWillMount(){
 
@@ -91,7 +80,14 @@ class MsiteHeader extends React.Component {
 
         //获取地理经纬度
         self.getLocation();
-
+        axios.get('/location/get',{params:{
+            latlon:this.state.latlon
+            }}).then((res)=>{
+            console.log("定位请求发起成功");
+            console.log(res.data);
+        }).catch((e)=>{
+            console.log(e);
+        });
         // 获取实时天气
         axios.get('/weather/now').then((res)=>{
             console.log(res.data);
