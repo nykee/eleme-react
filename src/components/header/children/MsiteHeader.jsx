@@ -2,106 +2,100 @@ import React from 'react';
 import {Row,Col} from 'antd'
 import axios from 'axios'
 
+
 class MsiteHeader extends React.Component {
 
     constructor(){
         super();
         this.state={
             tempe:'',
-            weatherPic:'',
             weather:'',
             locationAdd:'正在定位',
-            latlon:''
+            latlon:'',
+            index:0
         };
-        // this.pUrl =''
 
 
     }
 
-    getLocation(){
-        if (navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(this.showPosition,this.showError);
-        }else{
-            console.log("浏览器不支持地理定位。");
-        }
-    }
-    showError(error){
-        switch(error.code) {
-            case error.PERMISSION_DENIED:
-                console.log("定位失败,用户拒绝请求地理定位");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                console.log("定位失败,位置信息是不可用");
-                break;
-            case error.TIMEOUT:
-                console.log("定位失败,请求获取用户位置超时");
-                break;
-            case error.UNKNOWN_ERROR:
-                console.log("定位失败,定位系统失效");
-                break;
-        }
-    }
-    showPosition(position){
-        var latlon = position.coords.latitude+','+position.coords.longitude;
-        this.setState({
-            latlon:latlon
-        })
-    };
-    /*showPosition(position){
-        /!*var lat = position.coords.latitude; //纬度
-        var lng = position.coords.longitude; //经度*!/
 
-        var latlon = position.coords.latitude+','+position.coords.longitude;
-        console.log(latlon);
-        /!*axios.get("http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="+"39.934,116.329"+"&output=json&pois=1&ak=2bDYoECt97bksgX4w3j6FATWbs38FGHF",{withCredentials:true,headers:'Access-Control-Allow-Origin:*'}  ).then(function (res) {
-            console.log(res);
-        }).catch(function (err) {
-            console.log(err);
-        })*!/
-    }*/
+
 
 
     componentWillMount(){
-
-        // this.crypto();
         let self = this;
-        // console.log(this.props.isIndex);
-        // console.log(this.props.location.pathname);
-        /*console.log(location.pathname);*/
-        // let path =browserHistory.getLocation().pathname;
-        // console.log(path);
-        /* console.log(window.location.href.slice(window.location.href.indexOf('#')+1));
-         let windPath =window.location.href.slice(window.location.href.indexOf('#')+1)
-         if(windPath ==='/'||windPath ==="/msite"){
-             this.setState({
-                 isIndex:true
-             })
-         }*/
+        window.addEventListener('message',function (event) {
+            var loc = event.data;
+            console.log('location', loc);
+            if(loc.addr){
+                self.setState({
+                    locationAdd:loc.addr
+                })
+            }
+            else {
+                self.setState({
+                    locationAdd:"定位失败，请手动定位"
+                })
+            }
+
+        }, false);
+
+
+
 
         //获取地理经纬度
-        self.getLocation();
-        axios.get('/location/get',{params:{
-            latlon:this.state.latlon
-            }}).then((res)=>{
-            console.log("定位请求发起成功");
-            console.log(res.data);
-        }).catch((e)=>{
-            console.log(e);
-        });
+         function getLocation(){
+            if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition,showError);
+            }else{
+                console.log("浏览器不支持地理定位。");
+            }
+        }
+         function showError(error){
+             console.log(error);
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    console.log("定位失败,用户拒绝请求地理定位");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    console.log("定位失败,位置信息不可用");
+                    break;
+                case error.TIMEOUT:
+                    console.log("定位失败,请求获取用户位置超时");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    console.log("定位失败,定位系统失效");
+                    break;
+            }
+        }
+        function showPosition(position){
+            // console.log(self);
+            var latlon = position.coords.latitude+','+position.coords.longitude;
+            console.log(latlon);
+            /*axios.get('/location/get',{params:{
+                    latlon:latlon
+                }}).then((res)=>{
+                console.log("定位请求发起成功");
+                console.log(res.data);
+            }).catch((e)=>{
+                console.log(e);
+            });*/
+        }
+        // getLocation();
+
         // 获取实时天气
         axios.get('/weather/now').then((res)=>{
-            console.log(res.data);
+            // console.log(res.data);
             let temp = res.data.results[0].now.temperature;
             temp =temp+'°C';
             let weather =res.data.results[0].now.text;
-            let wPicBaseUrl ='../../../images/weather/';
-            let wPicRealUrl=wPicBaseUrl+res.data.results[0].now.code+'.png';
-            console.log(wPicRealUrl);
-            // console.log(temp);
+            // let wPicBaseUrl ='../../../images/weather/';
+            let index =res.data.results[0].now.code;
+
             self.setState({
                 weather:weather,
                 tempe:temp,
-                weatherPic:wPicRealUrl
+                index:index
             })
         }).catch((e)=>{
             console.log(e);
@@ -111,10 +105,13 @@ class MsiteHeader extends React.Component {
 
     }
     render() {
+        let index = this.state.index;
+
+
         return (
             <header className="header-container">
                 {/*地理位置*/}
-                <Row className="linerGradient header-wrapper">
+                <Row className="linerGradient " style={{height:'3.75rem'}}>
                     <Col span={16} className="locationCol headInfo">
                         <svg className="loca-svg">
                             <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="#location">
@@ -129,14 +126,16 @@ class MsiteHeader extends React.Component {
                         </svg>
                     </Col>
                     <Col span={6} offset={2} className="weatherCol">
-                        <div className="inlineB">
-                            <h2 style={{color:'#fff'}}>{this.state.tempe}</h2>
-                            <p style={{color:'#fff'}}>{this.state.weather}</p>
-                        </div>
-                        <img className='weatherPic' src={require('../../../images/weather/0.png')} alt="天气图标"/>
+                        <ul className="inlineB">
+                            <li><h2 style={{color:'#fff'}}>{this.state.tempe}</h2></li>
+                            <li><p style={{color:'#fff'}}>{this.state.weather}</p></li>
+                        </ul>
+                        <img className='weatherPic' src={require('../../../images/weather/'+index+'.png')} alt="天气图标"/>
                     </Col>
                 </Row>
-            </header>
+                <iframe id="geoPage"   style={{display:'none'}} scrolling="no" src="https://apis.map.qq.com/tools/geolocation?key=H4HBZ-AOMHS-QIKOH-6CEXF-C4LR2-VJFXW&referer=myapp">
+                </iframe>
+    </header>
 
         )
     }

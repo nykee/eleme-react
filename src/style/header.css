@@ -3,6 +3,10 @@
     line-height: 1.875rem;
 }
 .header-wrapper{
+    width: 100%;
+    height:3.75rem ;
+}
+.header-wrapper-fixed{
     position: fixed;
     top:0;
     left:0;
