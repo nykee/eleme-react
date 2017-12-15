@@ -1,15 +1,24 @@
 .searchContainer{
     top: 0;
     z-index: 999;
-    padding:1.2rem 1.6rem
+    padding:0.6rem 0.9rem
 }
 .searchContent{
     background:#fff;
+    color: #3d3d3d;
     display:flex;
     height:2.2rem;
     justify-content:center;
     align-items:center;
-    color: #3d3d3d;
     font-weight: bold;
     font-size: 0.9rem;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    border-radius:0.02667rem;
+    width: 100%;
+}
+.searchContainerRow{
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }

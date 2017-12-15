@@ -19,7 +19,7 @@ class Header extends React.Component {
     }
     componentWillMount(){
         let windPath =window.location.href.slice(window.location.href.indexOf('#')+1);
-        console.log(windPath);
+        // console.log(windPath);
         if(windPath ==='/discover'){
             this.setState({
                 title:'发现'
@@ -42,8 +42,8 @@ class Header extends React.Component {
 
     handleScroll() {
         let scrollTop = document.body.scrollTop ||document.documentElement.scrollTop;
-        console.log(scrollTop)
-        if(scrollTop>0){
+        // console.log(scrollTop)
+        if(scrollTop>2){
             // console.log(this);
             this.setState({
                 isScroll:true
@@ -59,7 +59,7 @@ class Header extends React.Component {
 
     render() {
         return (
-
+            //
             <div>
                 {this.props.isIndex?<MsiteHeader />
                     :

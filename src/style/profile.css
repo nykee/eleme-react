@@ -5,7 +5,7 @@
     text-align: left;
 }
 .avatar-container{
-    padding: .8rem 1rem;
+    padding: .76875rem 1rem;
     background:linear-gradient(90deg,#f5d293,#ef9c08);
 }
 .p-avatar{
@@ -27,7 +27,7 @@
 .yh-container{
     padding-top: .6rem;
     background: #fff;
-    margin-bottom: .6rem;
+    margin-bottom: .5375rem;
 }
 .yh-svg{
     height: 1.69rem;

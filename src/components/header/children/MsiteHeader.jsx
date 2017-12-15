@@ -1,6 +1,7 @@
 import React from 'react';
 import {Row,Col} from 'antd'
 import axios from 'axios'
+// import '../../../plugins/geolocation.min.js'
 
 
 class MsiteHeader extends React.Component {
@@ -8,11 +9,11 @@ class MsiteHeader extends React.Component {
     constructor(){
         super();
         this.state={
-            tempe:'',
-            weather:'',
+            tempe:'N/A',
+            weather:'N/A',
             locationAdd:'正在定位',
             latlon:'',
-            index:0
+            index:0,
         };
 
 
@@ -34,17 +35,18 @@ class MsiteHeader extends React.Component {
             }
             else {
                 self.setState({
-                    locationAdd:"定位失败，请手动定位"
+                    locationAdd:"定位失败"
                 })
             }
 
         }, false);
+        // var geolocation = new qq.maps.Geolocation("H4HBZ-AOMHS-QIKOH-6CEXF-C4LR2-VJFXW", "myapp");
 
 
 
 
         //获取地理经纬度
-         function getLocation(){
+        /* function getLocation(){
             if (navigator.geolocation){
                 navigator.geolocation.getCurrentPosition(showPosition,showError);
             }else{
@@ -72,15 +74,15 @@ class MsiteHeader extends React.Component {
             // console.log(self);
             var latlon = position.coords.latitude+','+position.coords.longitude;
             console.log(latlon);
-            /*axios.get('/location/get',{params:{
+            /!*axios.get('/location/get',{params:{
                     latlon:latlon
                 }}).then((res)=>{
                 console.log("定位请求发起成功");
                 console.log(res.data);
             }).catch((e)=>{
                 console.log(e);
-            });*/
-        }
+            });*!/
+        }*/
         // getLocation();
 
         // 获取实时天气
@@ -127,13 +129,13 @@ class MsiteHeader extends React.Component {
                     </Col>
                     <Col span={6} offset={2} className="weatherCol">
                         <ul className="inlineB">
-                            <li><h2 style={{color:'#fff'}}>{this.state.tempe}</h2></li>
-                            <li><p style={{color:'#fff'}}>{this.state.weather}</p></li>
+                            <li><h2  className="weatherDetail">{this.state.tempe}</h2></li>
+                            <li><p  className="weatherDetail">{this.state.weather}</p></li>
                         </ul>
                         <img className='weatherPic' src={require('../../../images/weather/'+index+'.png')} alt="天气图标"/>
                     </Col>
                 </Row>
-                <iframe id="geoPage"   style={{display:'none'}} scrolling="no" src="https://apis.map.qq.com/tools/geolocation?key=H4HBZ-AOMHS-QIKOH-6CEXF-C4LR2-VJFXW&referer=myapp">
+                <iframe id="geoPage"    style={{display:'none',height:0,width:0}} scrolling="no" src="https://apis.map.qq.com/tools/geolocation?key=H4HBZ-AOMHS-QIKOH-6CEXF-C4LR2-VJFXW&referer=myapp">
                 </iframe>
     </header>
 
