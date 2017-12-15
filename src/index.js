@@ -7,6 +7,7 @@ import Msite from './page/msite/Msite'
 import Discover from './page/discover/Discover'
 import Order from './page/order/Order'
 import Profile from './page/profile/Profile'
+import Search from './page/search/Search'
 import registerServiceWorker from './registerServiceWorker';
 import { Router, Route,  hashHistory,IndexRoute  } from 'react-router';
 
@@ -19,6 +20,7 @@ const routes =
         <Route path={'discover'} component={Discover}/>
         <Route path={'order'} component={Order}/>
         <Route path={'profile'} component={Profile}/>
+        <Route path={'search'} component={Search}/>
 
 
 

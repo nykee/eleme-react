@@ -1,6 +1,6 @@
 import React from 'react';
 import { BackTop} from 'antd'
-import Search from '../../components/Search'
+import Search from '../../components/MSiteSearch'
 import Commend from '../../components/Commend'
 import Swiper from '../../components/MySwiper'
 import BannerAD from './children/BannerAD'

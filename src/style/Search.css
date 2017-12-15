@@ -1,0 +1,19 @@
+.SearchHistory-Container,.SearchMost-container{
+    background: #fff;
+    padding-top: 1.2rem;
+}
+.SearchMost-title{
+    text-align: left;
+}
+.SearchMost-title, .SearchHistory-Title{
+    color: #666;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.Search-Items{
+    background: #F7F7F7;
+    padding: .5rem;
+}
+.Search-Items-Row{
+    margin-top: 1.4rem;
+}

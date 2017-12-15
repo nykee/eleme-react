@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header'
 import FootGuide from './components/footer/FootGuide'
+import SearchHeader from './page/search/children/SearchHeader'
 import './App.css';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
         super();
         this.state={
             isIndex:false,
-            subTitle:''
+            subTitle:'',
+            isSearchPage:false
         }
 
 
@@ -24,6 +26,16 @@ class App extends Component {
         else{
             this.setState({
                 isIndex:false
+            })
+        }
+        if(windPath ==='/search'){
+            this.setState({
+                isSearchPage:true
+            })
+        }
+        else {
+            this.setState({
+                isSearchPage:false
             })
         }
     }
@@ -54,14 +66,24 @@ class App extends Component {
                 })
             }
         }
+        if(nextProps.location.pathname ==='/search'){
+            this.setState({
+                isSearchPage:true
+            })
+        }
+        else {
+            this.setState({
+                isSearchPage:false
+            })
+        }
 
     }
   render() {
     return (
       <div className="App">
-          <Header isIndex={this.state.isIndex} subTitle={this.state.subTitle}></Header>
+          {this.state.isSearchPage?<SearchHeader></SearchHeader>:<Header isIndex={this.state.isIndex} subTitle={this.state.subTitle}></Header>}
           {this.props.children}
-          <FootGuide></FootGuide>
+          {this.state.isSearchPage?'':<FootGuide></FootGuide>}
       </div>
     );
   }
