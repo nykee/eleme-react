@@ -102,6 +102,11 @@ class MsiteHeader extends React.Component {
         }).catch((e)=>{
             console.log(e);
         })
+        axios.get('/shopping/resturant?Geo=31.0927,121.322&rname=KFC').then((res)=>{
+            console.log(res.data);
+        }).catch((err)=>{
+            console.log(err);
+        })
 
 
 
