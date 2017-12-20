@@ -4,7 +4,7 @@ import {Button} from 'antd'
 class notLoginPage extends React.Component {
     render() {
         let clientHeight = document.body.clientHeight;
-        console.log(clientHeight);
+        // console.log(clientHeight);
         return (
             <div style={{background:'#f5f5f5',fontSize:'1.2rem',height:clientHeight-72.7}}>
                 <div >

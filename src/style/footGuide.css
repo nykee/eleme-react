@@ -7,6 +7,7 @@
     padding-top: 0.12rem;
     box-shadow:0 -0.02667rem rgba(0,0,0,.1);
     background: #fff;
+    border-top: 1px solid #F5F5F5;
 }
 .footGuideRow{
     padding: .5rem 0 .3rem;

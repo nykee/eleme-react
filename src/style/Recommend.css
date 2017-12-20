@@ -14,3 +14,17 @@
 .shopList-title{
 
 }
+.brand{
+    background: #fff100;
+    color:#6F3F15
+}
+.delivery-mode{
+    background: #00A0FF;
+    color: #fff;
+}
+.border-right{
+    border-right: 1px solid #E4E4E4;
+}
+*{
+    font-size: 12px;
+}

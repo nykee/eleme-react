@@ -1,3 +1,9 @@
 .linerGradient{
     background: linear-gradient(90deg,#f5d293,#ef9c08);
 }
+.ant-back-top{
+    right:1.625rem !important;
+    bottom:4.875rem !important
+
+
+}
