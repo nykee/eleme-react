@@ -27,7 +27,7 @@ class MsiteHeader extends React.Component {
         let self = this;
         window.addEventListener('message',function (event) {
             var loc = event.data;
-            console.log('location', loc);
+            // console.log('location', loc);
             if(loc.addr!==null &&String(loc.addr) !==""){
                 self.setState({
                     locationAdd:loc.addr
