@@ -1,0 +1,21 @@
+.swipe-pagination-bullets{
+    width: 8px ;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #000;
+    opacity: .2;
+    margin-left: .3rem;
+}
+.swipe-pagination-bullets-active{
+    width: 8px ;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #007aff;
+    opacity: 1;
+    margin-left: .3rem;
+}
+.my-swipe-pagination{
+
+}

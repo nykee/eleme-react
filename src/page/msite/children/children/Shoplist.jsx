@@ -26,19 +26,19 @@ class Shoplist extends React.Component {
                                         <Row>
                                             <Col span={8}><Rate disabled allowHalf defaultValue={4.3} style={{height:'1.25rem'}}/></Col>
                                             <Col span={2}>{shop.rating}</Col>
-                                            <Col span={4}>月售{shop.recent_order_num}单</Col>
+                                            <Col span={4}>月售{shop.recentordernum}单</Col>
                                             <Col span={6} offset={4}><span className="delivery-mode">蜂鸟配送</span></Col>
                                         </Row>
                                     </li>
                                     <li>
                                         <Row>
                                             <Col span={8}>
-                                                <span>¥{shop.float_minimum_order_amount}起送</span>
-                                                <span>配送费¥{shop.float_delivery_fee}</span>
+                                                <span>¥{shop.floatminimumorderamount}起送</span>
+                                                <span>配送费¥{shop.floatdeliveryfee}</span>
                                             </Col>
                                             <Col span={8} offset={8}>
                                                 <span>{shop.distance}</span>
-                                                <span>{shop.order_lead_time}</span>
+                                                <span>{shop.orderleadtime}</span>
                                             </Col>
                                         </Row>
                                     </li>
