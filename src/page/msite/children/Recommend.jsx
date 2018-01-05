@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../style/Recommend.css'
 import  axios from 'axios'
+import {ScreenAPI} from '../../../util/ScreenAPI'
 
 import Shoplist from './children/Shoplist'
 
@@ -28,11 +29,11 @@ class Recommend extends React.Component {
     }
     handleScroll(){
 
-        let scrollTop = document.body.scrollTop ||document.documentElement.scrollTop;
+        let scrollTop = ScreenAPI.getScrollTop();
 
-        let clientHeight =document.body.clientHeight || document.documentElement.clientHeight;
-        console.log("clientHeight:"+clientHeight);
-        console.log("scrollTop:"+scrollTop);
+        let clientHeight =ScreenAPI.getClientHeight();
+        // console.log("clientHeight:"+clientHeight);
+        // console.log("scrollTop:"+scrollTop);
 
         if(scrollTop > clientHeight){
             // console.log("bingo");
@@ -58,9 +59,7 @@ class Recommend extends React.Component {
     componentDidMount(){
         window.addEventListener('scroll', this.handleScroll.bind(this));
     }
-    componentWillReceiveProps(){
 
-    }
 
     render() {
 

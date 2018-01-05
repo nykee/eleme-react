@@ -10,12 +10,13 @@
 }*/
 class ScreenAPI{
     static getClientWidth () {
-        let screenWidth =document.body.clientWidth;
-        return screenWidth
+        return document.body.clientWidth || document.documentElement.clientWidth;
     };
     static getClientHeight  () {
-        let screenHeight =document.body.clientHeight;
-        return screenHeight;
+        return document.body.clientHeight || document.documentElement.clientHeight;
+    }
+    static getScrollTop(){
+        return document.body.scrollTop ||document.documentElement.scrollTop;
     }
 }
 export {ScreenAPI};
