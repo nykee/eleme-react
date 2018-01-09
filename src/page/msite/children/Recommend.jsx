@@ -65,10 +65,10 @@ class Recommend extends React.Component {
 
 
         return (
-            <div style={{background:'#fff'}}>
+            <div style={{background:'#fff',marginBottom:'65px'}} id="reco-container">
                 <div className="shopList-title"> 推荐商家 </div>
-                <div id="shopList" className="shopList-content">
-                    <Shoplist shops={this.state.recommends}></Shoplist>
+                <div id="shopList" className="shopList-container">
+                    <Shoplist shops={this.state.recommends}/>
                 </div>
             </div>
 
