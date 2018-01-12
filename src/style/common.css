@@ -10,3 +10,6 @@
 a{
     color: #333 !important;
 }
+input{
+    outline: none;
+}

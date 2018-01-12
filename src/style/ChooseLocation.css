@@ -1,0 +1,23 @@
+.container{
+    background: #f4f4f4;
+    position: fixed;
+    top:0;
+    right: 0;
+    z-index: 99999;
+    transition: right;
+    transition-duration: 5s;
+    transition-timing-function: linear;
+    -webkit-transition: right;
+    -webkit-transition-duration: 5s;
+    -webkit-transition-timing-function: linear;
+
+
+}
+.container-transform{
+    background: #f4f4f4;
+    position: fixed;
+    top:0;
+    right: -375px;
+    z-index: 99999;
+
+}

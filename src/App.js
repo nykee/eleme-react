@@ -3,6 +3,7 @@ import Header from './components/header/Header'
 import FootGuide from './components/footer/FootGuide'
 import SearchHeader from './page/search/children/SearchHeader'
 import './App.css';
+import '../src/style/common.css'
 
 class App extends Component {
 
