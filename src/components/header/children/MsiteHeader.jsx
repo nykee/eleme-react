@@ -140,7 +140,7 @@ class MsiteHeader extends React.Component {
                         <img className='weatherPic' src={require('../../../images/weather/'+index+'.png')} alt="天气图标"/>
                     </Col>
                 </Row>
-                <iframe id="geoPage"    style={{display:'none',height:0,width:0}} scrolling="no" src="https://apis.map.qq.com/tools/geolocation?key=H4HBZ-AOMHS-QIKOH-6CEXF-C4LR2-VJFXW&referer=myapp">
+                <iframe id="geoPage"   title="geoPage" style={{display:'none',height:0,width:0}} scrolling="no" src="https://apis.map.qq.com/tools/geolocation?key=H4HBZ-AOMHS-QIKOH-6CEXF-C4LR2-VJFXW&referer=myapp">
                 </iframe>
     </header>
 
