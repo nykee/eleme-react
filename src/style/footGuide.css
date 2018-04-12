@@ -16,3 +16,9 @@
 .cLink{
     color: #666666;
 }
+.active{
+    color: #ef9c08 !important;
+}
+a:hover{
+    color:#ef9c08 !important;
+}

@@ -1,23 +1,54 @@
+
+@keyframes showLocation
+{
+    from {right:-100%;}
+    to {right:0;}
+}
+
+@-webkit-keyframes showLocation /*Safari and Chrome*/
+{
+    from {right:-100%;}
+    to {right:0;}
+}
+
+@keyframes hideLocation
+{
+    from {right:0;}
+    to {right:-100%;}
+}
+
+@-webkit-keyframes hideLocation /*Safari and Chrome*/
+{
+    from {right:0;}
+    to {right:-100%;}
+}
+.container-show{
+    background: #f4f4f4;
+    position: fixed;
+    top:0;
+    z-index: 99999;
+    right: 0;
+    animation:showLocation  .7s linear ;
+    -webkit-animation:showLocation .7s linear; /*Safari and Chrome*/
+
+}
+
+.container-hide{
+    background: #f4f4f4;
+    position: fixed;
+    top:0;
+    z-index: 99999;
+    right: -100%;
+    animation:hideLocation .7s linear ;
+    -webkit-animation:hideLocation .7s linear; /*Safari and Chrome*/
+
+
+
+}
+
 .container{
     background: #f4f4f4;
     position: fixed;
     top:0;
-    right: 0;
     z-index: 99999;
-    transition: right;
-    transition-duration: 5s;
-    transition-timing-function: linear;
-    -webkit-transition: right;
-    -webkit-transition-duration: 5s;
-    -webkit-transition-timing-function: linear;
-
-
-}
-.container-transform{
-    background: #f4f4f4;
-    position: fixed;
-    top:0;
-    right: -375px;
-    z-index: 99999;
-
-}
+    right: -100%;}

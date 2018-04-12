@@ -16,7 +16,7 @@ class SwiperItem extends React.Component {
             verticalAlign:'top'
         };
         return (
-            <Link to={this.props.linkSrc}>
+            <Link to={this.props.linkSrc} style={{color:'#666 !important'}}>
                 <ul>
                     <li>
                         <div style={container}><img  style={imgStyle} src={require("../../images/swiper/"+this.props.imgSrc+".jpg")} alt=""/></div>

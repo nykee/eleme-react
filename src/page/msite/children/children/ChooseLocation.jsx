@@ -2,6 +2,7 @@ import React from 'react';
 import {Row,Col,Input} from 'antd'
 import {ScreenAPI} from '../../../../util/ScreenAPI'
 import '../../../../style/ChooseLocation.css'
+import emitter from '../../../../util/ev'
 
 class ChooseLocation extends React.Component {
     constructor(){
@@ -9,26 +10,21 @@ class ChooseLocation extends React.Component {
         this.state ={
             isLocating:false,
             positionRight:0,
-            isHiding:false
+            hideStatus:''
         };
         this.fetchLocation =this.fetchLocation.bind(this);
         this.hide =this.hide.bind(this)
     }
-    hide(){
-        /*let i =this.state.positionRight;
-        let timer=setInterval(()=>{
-
-            i--;
+    componentDidMount(){
+        emitter.on('showLocationTable',()=>{
             this.setState({
-                positionRight:i
-            });
-            console.log(i);
-            if(i===-375){
-                clearInterval(timer)
-            }
-        },1);*/
+                hideStatus:'show'
+            })
+        })
+    }
+    hide(){
         this.setState({
-            isHiding:true
+            hideStatus:'hide'
         })
 
 
@@ -49,8 +45,18 @@ class ChooseLocation extends React.Component {
     render() {
         let clientWidth =ScreenAPI.getClientWidth();
         let clientHeight =ScreenAPI.getClientHeight();
+        let myClassName ='';
+        if(this.state.hideStatus ===''){
+            myClassName = 'container'
+        }
+        else if(String(this.state.hideStatus) ==='show'){
+            myClassName = 'container-show'
+        }
+        else {
+            myClassName = 'container-hide'
+        }
         return (
-            <div style={{width:clientWidth,height:clientHeight}} className={this.state.isHiding?'container-transform':'container'}>
+            <div style={{width:clientWidth,height:clientHeight}} className={myClassName}>
                 <Row style={{background:'linear-gradient(90deg,#f5d293,#ef9c08)'}} >
                     <Col span={2} style={{color:'#fff',paddingTop:'.4rem'}}><i className="fa fa-chevron-left" onClick={this.hide}></i></Col>
                     <Col span={22} ><h2 style={{color:'#fff',paddingTop:'.4rem'}}>选择收获地址</h2></Col>

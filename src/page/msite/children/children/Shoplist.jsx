@@ -2,7 +2,7 @@ import React from 'react';
 import {Row,Col,Rate} from 'antd'
 class Shoplist extends React.Component {
     componentWillReceiveProps(nextProps){
-        console.log(nextProps);
+        // console.log(nextProps);
     };
     render() {
         const shops= this.props.shops;

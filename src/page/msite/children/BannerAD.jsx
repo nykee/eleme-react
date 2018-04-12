@@ -5,7 +5,7 @@ class BannerAD extends React.Component {
 
     render() {
         let clientWidth =ScreenAPI.getClientWidth();
-        console.log(clientWidth);
+        // console.log(clientWidth);
         return (
             <div style={{padding:'0.4rem',background:'#fff'}}><img  style={{width:'auto',height:'auto',maxWidth:'100%'}} src={require('../../../images/new.png')} alt=""/></div>
 

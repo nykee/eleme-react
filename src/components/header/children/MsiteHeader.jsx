@@ -1,6 +1,7 @@
 import React from 'react';
 import {Row,Col} from 'antd'
 import axios from 'axios'
+import emitter from '../../../util/ev'
 // import '../../../plugins/geolocation.min.js'
 
 
@@ -15,12 +16,15 @@ class MsiteHeader extends React.Component {
             latlon:'',
             index:0,
         };
+        this.showLocationTable =this.showLocationTable.bind(this);
 
 
     }
 
 
-
+    showLocationTable(){
+        emitter.emit('showLocationTable')
+    }
 
 
     componentWillMount(){
@@ -28,16 +32,25 @@ class MsiteHeader extends React.Component {
         window.addEventListener('message',function (event) {
             var loc = event.data;
             // console.log('location', loc);
-            if(loc.addr!==null &&String(loc.addr) !==""){
-                self.setState({
-                    locationAdd:loc.addr
-                })
-            }
-            else {
+            try{
+                if(loc.addr!==null &&String(loc.addr) !==""){
+                    self.setState({
+                        locationAdd:loc.addr
+                    })
+                }
+                else {
+                    self.setState({
+                        locationAdd:"定位失败"
+                    })
+                }
+            }catch (e){
+                console.log(e);
+            }finally {
                 self.setState({
                     locationAdd:"定位失败"
                 })
             }
+
 
         }, false);
         // var geolocation = new qq.maps.Geolocation("H4HBZ-AOMHS-QIKOH-6CEXF-C4LR2-VJFXW", "myapp");
@@ -119,7 +132,7 @@ class MsiteHeader extends React.Component {
             <header className="header-container">
                 {/*地理位置*/}
                 <Row className="linerGradient " style={{height:'3.75rem'}}>
-                    <Col span={16} className="locationCol headInfo">
+                    <Col span={16} className="locationCol headInfo" onClick={this.showLocationTable}>
                         <svg className="loca-svg">
                             <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="#location">
                                 <svg viewBox="0 0 26 31" id="location" width="100%" height="100%"><path fill="#FFF" fillRule="evenodd" d="M22.116 22.601c-2.329 2.804-7.669 7.827-7.669 7.827-.799.762-2.094.763-2.897-.008 0 0-5.26-4.97-7.643-7.796C1.524 19.8 0 16.89 0 13.194 0 5.908 5.82 0 13 0s13 5.907 13 13.195c0 3.682-1.554 6.602-3.884 9.406zM18 13a5 5 0 1 0-10 0 5 5 0 0 0 10 0z"></path></svg>

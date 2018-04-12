@@ -12,7 +12,8 @@ class App extends Component {
         this.state={
             isIndex:false,
             subTitle:'',
-            isSearchPage:false
+            isSearchPage:false,
+            url:''
         }
 
 
@@ -41,7 +42,8 @@ class App extends Component {
         }
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps.location.pathname);
+        // this.setState({url:nextProps.location.pathname});
+        // console.log(nextProps.location.pathname);
         if(nextProps.location.pathname ==='/'||nextProps.location.pathname ==="/msite"){
             this.setState({
                 isIndex:true
@@ -84,7 +86,7 @@ class App extends Component {
       <div className="App">
           {this.state.isSearchPage?<SearchHeader></SearchHeader>:<Header isIndex={this.state.isIndex} subTitle={this.state.subTitle}></Header>}
           {this.props.children}
-          {this.state.isSearchPage?'':<FootGuide></FootGuide>}
+          {this.state.isSearchPage?'':<FootGuide ></FootGuide>}
       </div>
     );
   }
